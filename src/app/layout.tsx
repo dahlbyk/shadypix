@@ -17,8 +17,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <p><a href="https://github.com/dahlbyk/shadypix">GitHub</a></p>
         {children}
-        <a href="https://github.com/dahlbyk/shadypix">GitHub</a>
       </body>
     </html>
   )
