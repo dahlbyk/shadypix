@@ -2,8 +2,8 @@ import { getAllAlbums } from "@/lib/albums";
 import { getAllPhotos } from "@/lib/photos";
 
 export default async function Home() {
-  const albums = await getAllAlbums();
-  const photos = await getAllPhotos();
+  const albums = await getAllAlbums('_limit=20');
+  const photos = await getAllPhotos('_limit=10');
 
   return (
     <main>
