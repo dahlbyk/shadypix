@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation'
 import { getAlbum } from "@/lib/albums";
-import Photos from '@/components/photos';
+import Photos from '@/app/(photos)/components/photos';
 
 type Props = {
   params: { id: string }
