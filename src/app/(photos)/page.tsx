@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Photos from "@/components/photos";
+import Photos from "@/app/(photos)/components/photos";
 import { getAllPhotos } from "@/lib/photos";
 
 export const metadata: Metadata = {
