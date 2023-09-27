@@ -1,3 +1,5 @@
+import { Photo } from "./photos";
+
 export type Album = {
     id: number;
     title: string;
@@ -11,4 +13,16 @@ export async function getAllAlbums(params: string | URLSearchParams = '') {
     }
 
     return await res.json() as Album[];
+}
+
+export async function getAlbum(id: number) {
+    const res = await fetch(`https://jsonplaceholder.typicode.com/albums/${id}?_embed=photos`);
+    if (!res.ok) {
+        if (res.status === 404) return null;
+
+        console.warn(res);
+        throw new Error(`Failed to fetch album ${id}!`);
+    }
+
+    return await res.json() as Album & { photos: Photo[] };
 }

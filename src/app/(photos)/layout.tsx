@@ -1,5 +1,6 @@
 import { getAllAlbums } from '@/lib/albums'
 import type { Metadata } from 'next'
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Photos',
@@ -19,7 +20,7 @@ export default async function PhotosLayout({
         <ul>
           {albums.map(a => (
             <li key={a.id}>
-              <p>{a.id}: {a.title}</p>
+              <Link href={`/albums/${a.id}`}>{a.title}</Link>
             </li>
           ))}
         </ul>
