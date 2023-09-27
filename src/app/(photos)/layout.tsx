@@ -1,4 +1,5 @@
 import { getAllAlbums } from '@/lib/albums'
+import { Card } from '@material-tailwind/react';
 import type { Metadata } from 'next'
 import Link from 'next/link';
 
@@ -14,8 +15,8 @@ export default async function PhotosLayout({
   const albums = await getAllAlbums('_limit=20');
 
   return (
-    <>
-      <aside>
+    <div className="flex">
+      <Card className="h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5">
         <h2>Albums</h2>
         <ul>
           {albums.map(a => (
@@ -24,10 +25,10 @@ export default async function PhotosLayout({
             </li>
           ))}
         </ul>
-      </aside>
-      <main>
+      </Card>
+      <Card>
         {children}
-      </main>
-    </>
+      </Card>
+    </div>
   )
 }
