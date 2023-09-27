@@ -1,6 +1,6 @@
 import { getAllAlbums } from '@/lib/albums'
 import type { Metadata } from 'next'
-import Link from 'next/link';
+import { Sidebar } from './components/sidebar';
 
 export const metadata: Metadata = {
   title: 'Photos',
@@ -14,20 +14,17 @@ export default async function PhotosLayout({
   const albums = await getAllAlbums('_limit=20');
 
   return (
-    <>
-      <aside>
-        <h2>Albums</h2>
-        <ul>
-          {albums.map(a => (
-            <li key={a.id}>
-              <Link href={`/albums/${a.id}`}>{a.title}</Link>
-            </li>
-          ))}
-        </ul>
-      </aside>
-      <main>
-        {children}
-      </main>
-    </>
+    <div className="border-t">
+      <div className="bg-background">
+        <div className="grid lg:grid-cols-5">
+          <Sidebar albums={albums} className="hidden lg:block" />
+          <div className="col-span-3 lg:col-span-4 lg:border-l">
+            <div className="h-full px-4 py-6 lg:px-8">
+              {children}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }
