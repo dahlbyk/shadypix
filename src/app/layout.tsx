@@ -1,3 +1,4 @@
+import { SiteHeader } from '@/components/site-header'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
@@ -17,8 +18,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <p><a href="https://github.com/dahlbyk/shadypix">GitHub</a></p>
+        <SiteHeader />
         {children}
+        <p className="p-7">
+          Inspired by <a href="https://ui.shadcn.com/examples/music"><code>https://ui.shadcn.com/examples/music</code></a>
+        </p>
       </body>
     </html>
   )
