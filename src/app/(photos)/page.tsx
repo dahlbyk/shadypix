@@ -1,3 +1,4 @@
+import Photos from "@/components/photos";
 import { getAllPhotos } from "@/lib/photos";
 
 export default async function Home() {
@@ -6,14 +7,7 @@ export default async function Home() {
   return (
     <>
       <h2>Photos</h2>
-      <ul>
-        {photos.map(p => (
-          <li key={p.id}>
-            <p>{p.id}: {p.title}</p>
-            <img src={p.thumbnailUrl} alt={p.title} width={150} height={150} />
-          </li>
-        ))}
-      </ul>
+      <Photos photos={photos} />
     </>
   )
 }
