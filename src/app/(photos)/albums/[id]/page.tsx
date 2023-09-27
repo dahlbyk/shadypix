@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation'
 import { getAlbum } from "@/lib/albums";
-import Photos from '@/components/photos';
+import Photos from '@/app/(photos)/components/photos';
+import { Separator } from '@/components/ui/separator';
 
 type Props = {
   params: { id: string }
@@ -22,7 +23,14 @@ export default async function AlbumPhotos({ params: { id } }: Props) {
 
   return (
     <>
-      <h2>Album: {album.title}</h2>
+      <div className="flex items-center justify-between">
+        <div className="space-y-1">
+          <h2 className="text-2xl font-semibold tracking-tight">
+            Album: {album.title}
+          </h2>
+        </div>
+      </div>
+      <Separator className="my-4" />
       <Photos photos={album.photos} />
     </>
   )
