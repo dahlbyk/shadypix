@@ -4,8 +4,8 @@ export type Album = {
     userId: number;
 }
 
-export async function getAllAlbums() {
-    const res = await fetch('https://jsonplaceholder.typicode.com/albums');
+export async function getAllAlbums(params: string | URLSearchParams = '') {
+    const res = await fetch(`https://jsonplaceholder.typicode.com/albums?${params}`);
     if (!res.ok) {
         throw new Error('Failed to fetch albums!');
     }
