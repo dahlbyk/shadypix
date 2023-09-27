@@ -6,8 +6,8 @@ export type Photo = {
     thumbnailUrl: string;
 }
 
-export async function getAllPhotos() {
-    const res = await fetch('https://jsonplaceholder.typicode.com/photos');
+export async function getAllPhotos(params: string | URLSearchParams = '') {
+    const res = await fetch(`https://jsonplaceholder.typicode.com/photos?${params}`);
     if (!res.ok) {
         throw new Error('Failed to fetch photos!');
     }

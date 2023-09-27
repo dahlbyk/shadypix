@@ -1,10 +1,8 @@
-import { getAllPhotos } from "@/lib/photos";
+import { Photo } from "@/lib/photos";
 
-export default async function Home() {
-  const photos = await getAllPhotos();
-
+export default async function Photos({ photos }: { photos: Photo[] }) {
   return (
-    <main>
+    <>
       <ul>
         {photos.map(p => (
           <li key={p.id}>
@@ -13,6 +11,6 @@ export default async function Home() {
           </li>
         ))}
       </ul>
-    </main>
+    </>
   )
 }
