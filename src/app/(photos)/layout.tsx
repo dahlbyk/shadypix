@@ -14,10 +14,10 @@ export default async function PhotosLayout({
   const albums = await getAllAlbums('_limit=20');
 
   return (
-    <>
+    <div className='w-full'>
       <aside className="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content flex flex-col">
+        <div className="drawer-content p-4">
           <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Albums</label>
           {children}
         </div>
@@ -38,6 +38,6 @@ export default async function PhotosLayout({
           </div>
         </div>
       </aside>
-    </>
+    </div>
   )
 }
